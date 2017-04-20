@@ -3,6 +3,20 @@
 
 /* ==================-首页============================================================ */
 
+.music {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    width: 30px;
+    height: 30px;
+    background: url('../img/normalmusic.svg') center center no-repeat;
+    background-size: 100% auto;
+    z-index: 100;
+    &.dong {
+        animation: zhuan_z 2s linear 0s infinite running;
+    }
+}
+
 .section {
     position: relative;
     color: @dark_red;
@@ -13,6 +27,15 @@
     .page {
         width: 100%;
         height: 100%;
+    }
+}
+
+@keyframes zhuan_z {
+    50% {
+        transform: rotateZ(180deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
     }
 }
 
@@ -34,6 +57,7 @@
             vertical-align: bottom;
             margin-top: -75px;
             margin-left: -30px;
+            display: none;
             &.dong {
                 animation: fadeindown 2s ease 0s 1 running;
             }
@@ -49,6 +73,7 @@
             height: 310px;
             background: url('../img/round_bg.png') 0 36px no-repeat;
             background-size: 9.2rem auto;
+            display: none;
             &.dong {
                 animation: fadeinscsle 2s ease 0s 1 running;
             }
@@ -56,7 +81,7 @@
                 width: 270px;
                 height: 270px;
                 border-radius: 100%;
-                border: 2px solid @light_purple;
+                border: 2px solid @light_pinkk;
                 margin: 0 auto;
                 text-align: center;
                 padding: 6px;
@@ -67,7 +92,7 @@
                     border-radius: 100%;
                     padding: 6px;
                     box-sizing: border-box;
-                    background-color: @light_purple;
+                    background-color: @light_pinkk;
                     overflow: hidden;
                     img {
                         width: 100%;
@@ -82,6 +107,7 @@
             position: absolute;
             top: 130px;
             left: 30px;
+            display: none;
             &.dong {
                 animation: zhuany 2s ease 0s 1 running;
             }
@@ -102,9 +128,14 @@
             line-height: 36px;
         }
     }
+    .word_outer {
+        width: 100%;
+        margin-top: 20px;
+        height: 128px;
+    }
     .word_out {
         height: 128px;
-        margin-top: 20px;
+        display: none;
         &.dong {
             animation: fadein_line 1.2s ease 0s 1 running;
         }
@@ -165,6 +196,7 @@
             height: auto;
             margin-left: -25px;
             margin-top: 0;
+            display: none;
             &.dong {
                 animation: fadeinup 2s ease 0s 1 running;
             }
@@ -230,6 +262,7 @@
                 height: 360px;
                 overflow: hidden;
                 transtion: all 2s;
+                display: none;
                 img {
                     width: 100%;
                     height: auto;
@@ -262,6 +295,7 @@
             position: absolute;
             text-align: center;
             top: 36px;
+            display: none;
             &.dong {
                 animation: img_scale 2s ease 0s 1 running;
             }
@@ -302,6 +336,7 @@
         span {
             display: block;
             margin: 0 auto;
+            display: none;
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
@@ -311,6 +346,7 @@
         width: 100%;
         text-align: center;
         line-height: 26px;
+        display: none;
         &.dong {
             animation: p_scale 2s ease 0s 1 running;
         }
@@ -322,6 +358,7 @@
         overflow: hidden;
         left: 0;
         bottom: 0;
+        display: none;
         img {
             width: 2rem;
             height: auto;
@@ -339,6 +376,7 @@
         position: absolute;
         right: 0;
         bottom: 0;
+        display: none;
         img {
             width: 100%;
             height: auto;
@@ -402,6 +440,7 @@
             box-sizing: border-box;
             margin: 0 auto;
             background: @light_blue;
+            display: none;
             img {
                 width: 100%;
                 height: auto;
@@ -418,6 +457,7 @@
             bottom: -20px;
             background: url('../img/flags.png') left bottom no-repeat;
             background-size: 100% auto;
+            display: none;
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
@@ -430,6 +470,7 @@
             top: -25px;
             background: url('../img/love.png') top left no-repeat;
             background-size: 100% auto;
+            display: none;
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
@@ -445,6 +486,7 @@
             img {
                 width: 100%;
                 height: auto;
+                display: none;
                 &.dong {
                     animation: p_scale 2s ease 0s 1 running;
                 }
@@ -457,6 +499,7 @@
             width: 180px;
             line-height: 40px;
             font-size: 18px;
+            display: none;
             &.title {
                 margin-top: 46px;
                 &:before {
@@ -510,6 +553,7 @@
             height: auto;
             margin-left: -25px;
             margin-top: 0;
+            display: none;
             &.dong {
                 animation: fadeinup 2s ease 0s 1 running;
             }
@@ -531,7 +575,8 @@
             padding: 10px;
             box-sizing: border-box;
             margin: 0 auto;
-            background: @light_pink;
+            background: @light_pinkk;
+            display: none;
             img {
                 width: 100%;
                 height: auto;
@@ -549,6 +594,7 @@
             background: url('../img/flags.png') left bottom no-repeat;
             transform: rotateY(180deg);
             background-size: 100% auto;
+            display: none;
             &.dong {
                 animation: p_scale_rotate 2s ease 0s 1 running;
             }
@@ -561,6 +607,7 @@
             top: -25px;
             background: url('../img/love.png') top left no-repeat;
             background-size: 100% auto;
+            display: none;
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
@@ -576,6 +623,7 @@
             img {
                 width: 100%;
                 height: auto;
+                display: none;
                 &.dong {
                     animation: p_scale 2s ease 0s 1 running;
                 }
@@ -588,6 +636,7 @@
             width: 180px;
             line-height: 40px;
             font-size: 18px;
+            display: none;
             &.title {
                 margin-top: 46px;
                 &:before {
@@ -641,6 +690,7 @@
             height: auto;
             margin-left: 12px;
             margin-top: 0;
+            display: none;
             &.dong {
                 animation: fadeinup 2s ease 0s 1 running;
             }
@@ -665,7 +715,7 @@
 #section5 {
     .top_out {
         width: 100%;
-        height: 235px;
+        height: 250px;
         overflow: hidden;
         position: relative;
         z-index: 1;
@@ -675,9 +725,10 @@
             height: 235px;
             margin: 0 auto;
             text-align: center;
+            display: none;
             img {
-                height: 100%;
-                width: auto;
+                height: auto;
+                width: 100%;
             }
             &.dong {
                 animation: fadedown 2s ease 0s 1 running;
@@ -698,6 +749,7 @@
             top: -20px;
             background: url('../img/flo_left.png') left bottom no-repeat;
             background-size: 100% auto;
+            display: none;
             &.dong {
                 animation: img_trans_l 2s ease 0s 1 running;
             }
@@ -711,6 +763,7 @@
             top: -25px;
             background: url('../img/flo_right.png') top left no-repeat;
             background-size: 100% auto;
+            display: none;
             &.dong {
                 animation: img_trans_r 2s ease 0s 1 running;
             }
@@ -719,6 +772,7 @@
             width: 100%;
             text-align: center;
             margin-top: 10px;
+            display: none;
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
@@ -726,6 +780,7 @@
         .mid_b {
             width: 100%;
             text-align: center;
+            display: none;
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
@@ -735,6 +790,7 @@
             height: 1px;
             background-color: @light_blue;
             margin: 10px auto;
+            display: none;
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
@@ -742,12 +798,15 @@
     }
     ul.page5_ul {
         width: 100%;
+        height: 236px;
+        overflow: hidden;
         li {
             width: 50%;
             float: left;
             height: auto;
             overflow: hidden;
             transtion: all 2s;
+            display: none;
             img {
                 width: 100%;
                 height: auto;
@@ -816,6 +875,7 @@
         img {
             height: 100%;
             width: auto;
+            display: none;
             &.page6_img {
                 &.dong {
                     animation: scale_s 2s ease 0s 1 running;
@@ -841,6 +901,7 @@
             line-height: 26px;
             p {
                 text-align: center;
+                display: none;
                 &.dong {
                     animation: p_scale 2s ease 0s 1 running;
                 }
@@ -849,6 +910,7 @@
                 position: absolute;
                 top: 0;
                 left: 50px;
+                display: none;
                 img {
                     width: 100%;
                     height: 47px;
@@ -861,6 +923,7 @@
                 position: absolute;
                 top: 5px;
                 right: 50px;
+                display: none;
                 img {
                     width: 100%;
                     height: 47px;
@@ -878,6 +941,7 @@
         top: 0;
         left: 0;
         overflow: hidden;
+        display: none;
         img {
             width: 100%;
             height: auto;
@@ -895,6 +959,7 @@
         overflow: hidden;
         img {
             vertical-align: bottom;
+            display: none;
             &.img_b1 {
                 width: 126px;
                 height: auto;
@@ -948,10 +1013,12 @@
     .page7_t_out {
         width: 100%;
         height: 88px;
+        overflow: hidden;
         .page7_t {
             width: 100%;
             position: relative;
             text-align: center;
+            display: none;
             img {
                 &.img1 {
                     width: 350px;
@@ -1006,6 +1073,7 @@
         img {
             width: 100%;
             height: auto;
+            display: none;
             &.dong {
                 animation: fanzhuan 3s ease 0s 1 running;
             }
@@ -1020,6 +1088,7 @@
         img {
             width: 98px;
             height: auto;
+            display: none;
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
@@ -1028,8 +1097,9 @@
     .page7_b {
         width: 100%;
         position: absolute;
-        height: 281px;
+        height: 276px;
         bottom: 0;
+        display: none;
         img {
             display: block;
             &.img1 {
@@ -1110,6 +1180,7 @@
             vertical-align: bottom;
             margin-top: -75px;
             margin-left: -30px;
+            display: none;
             &.dong {
                 animation: fadeindown 2s ease 0s 1 running;
             }
@@ -1127,6 +1198,7 @@
             box-sizing: border-box;
             background: @light_blue;
             margin: 0 auto;
+            display: none;
             img {
                 width: 100%;
                 height: auto;
@@ -1141,6 +1213,7 @@
             top: 63px;
             left: 50%;
             margin-left: -70px;
+            display: none;
             &.dong {
                 animation: zhuany 2s ease 0s 1 running;
             }
@@ -1157,10 +1230,12 @@
         box-sizing: border-box;
         margin: -72px auto 0;
         position: relative;
+        display: none;
         p.title {
             font-size: 18px;
             text-align: center;
             line-height: 32px;
+            display: none;
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
@@ -1173,6 +1248,7 @@
             li {
                 width: 240px;
                 margin: 0 auto;
+                display: none;
                 &::after {
                     content: '';
                     clear: both;
@@ -1194,6 +1270,7 @@
             margin-left: -1px;
             height: 170px;
             bottom: 15px;
+            display: none;
             li {
                 width: 29px;
                 height: 39px;
@@ -1222,6 +1299,7 @@
             height: auto;
             margin-left: -25px;
             margin-top: 0;
+            display: none;
             &.dong {
                 animation: fadeinup 2s ease 0s 1 running;
             }
@@ -1249,6 +1327,7 @@
         width: 148px;
         height: 80px;
         overflow: hidden;
+        display: none;
         img {
             width: 148px;
             height: auto;
@@ -1265,6 +1344,7 @@
         width: 158px;
         height: ;
         overflow: hidden;
+        display: none;
         img {
             width: 158px;
             height: auto;
@@ -1285,12 +1365,13 @@
             height: auto;
             margin-left: -25px;
             margin-top: 0;
+            display: none;
             &.dong {
                 animation: fadeinup 2s ease 0s 1 running;
             }
         }
     }
-    p.title{
+    p.title {
         text-align: center;
         position: relative;
         width: 180px;
@@ -1320,22 +1401,25 @@
         span {
             display: block;
             margin: 0 auto;
+            display: none;
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
         }
     }
-    .page9_body{
+    .page9_body {
         width: 330px;
         border: 3px solid @light_blue;
         padding: 0px 0 50px;
         box-sizing: border-box;
         margin: 0 auto 0;
         position: relative;
-        .page9_b_t{
+        display: none;
+        .page9_b_t {
             width: 100%;
-            height:210px ;
-            img{
+            height: 210px;
+            display: none;
+            img {
                 width: 100%;
                 height: auto;
             }
@@ -1343,33 +1427,35 @@
                 animation: fanzhuan 2s ease 0s 1 running;
             }
         }
-        dl{
+        dl {
             width: 80%;
             text-align: center;
             line-height: 26px;
             font-size: 14px;
             margin: 0 auto;
-            dt{
+            display: none;
+            dt {
                 font-size: 16px;
                 margin-top: 16px;
             }
-            dd{
-                border-top:1px dashed @light_pink;
-                border-bottom:1px dashed @light_pink;
+            dd {
+                border-top: 1px dashed @light_pink;
+                border-bottom: 1px dashed @light_pink;
             }
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
         }
-        .cage{
+        .cage {
             position: absolute;
             right: 0;
             bottom: -10px;
             width: 66px;
             height: 83px;
             overflow: hidden;
-            img{
-                width:66px;
+            display: none;
+            img {
+                width: 66px;
                 height: auto;
             }
             &.dong {
@@ -1382,7 +1468,9 @@
     }
 }
 
+
 /* 第10页* --------------------------------------- */
+
 #section10 {
     .page9_l {
         position: absolute;
@@ -1391,6 +1479,7 @@
         width: 148px;
         height: 80px;
         overflow: hidden;
+        display: none;
         img {
             width: 148px;
             height: auto;
@@ -1407,6 +1496,7 @@
         width: 158px;
         height: ;
         overflow: hidden;
+        display: none;
         img {
             width: 158px;
             height: auto;
@@ -1427,12 +1517,13 @@
             height: auto;
             margin-left: -25px;
             margin-top: 0;
+            display: none;
             &.dong {
                 animation: fadeinup 2s ease 0s 1 running;
             }
         }
     }
-    p.title{
+    p.title {
         text-align: center;
         position: relative;
         width: 270px;
@@ -1462,40 +1553,42 @@
         span {
             display: block;
             margin: 0 auto;
+            display: none;
             &.dong {
                 animation: p_scale 2s ease 0s 1 running;
             }
         }
     }
-    .page9_body{
-        width: 330px;        
+    .page9_body {
+        width: 330px;
         margin: 0 auto 0;
         padding-bottom: 10px;
-        position: relative;  
-        form{
+        position: relative;
+        display: none;
+        form {
             width: 100%;
-            margin:40px auto;
-            input{
+            margin: 40px auto;
+            input {
                 display: block;
                 margin: 16px auto;
                 width: 220px;
                 height: 35px;
                 line-height: 35px;
                 padding: 2px 4px;
-                border:1px solid @light_blue;
+                border: 1px solid @light_blue;
                 font-size: 14px;
             }
-            textarea{
+            textarea {
                 display: block;
                 margin: 16px auto;
                 width: 220px;
                 height: 65px;
                 line-height: 35px;
                 padding: 2px 4px;
-                border:1px solid @light_blue;
+                border: 1px solid @light_blue;
                 font-size: 14px;
             }
-            span{
+            span {
                 display: block;
                 margin: 16px auto;
                 width: 220px;
@@ -1507,16 +1600,17 @@
                 text-align: center;
                 font-size: 14px;
             }
-        }      
-        .cage{
+        }
+        .cage {
             position: absolute;
             right: 0;
             bottom: -10px;
             width: 66px;
             height: 83px;
             overflow: hidden;
-            img{
-                width:66px;
+            display: none;
+            img {
+                width: 66px;
                 height: auto;
             }
             &.dong {
@@ -1528,6 +1622,8 @@
         }
     }
 }
+
+
 /* 下一页按钮* --------------------------------------- */
 
 #next_btn {

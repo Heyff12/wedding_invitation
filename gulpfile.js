@@ -32,8 +32,9 @@ var file_road = {
     cssSrc: './src/less/**/*.less',
     cssDst: './static/css',
 
+    // imgSrc: ['./src/img/**/*','./src/img_test/**/*'],
     imgSrc: './src/img/**/*',
-    imgDst: './static/img',
+    imgDst: './static/img/',
 
     jsLocal: './src/js/**/*.js',
     jsLocal_es6_no: ['./src/js/{plug,common}/**/*.js', './src/js/require.2.1.11.min.js', './src/js/require-config.js'],
@@ -137,12 +138,12 @@ gulp.task('jsLocal_es6_no', function() {
 // 图片处理------------------------------------------------------------------------------------------------------------------------------------------
 gulp.task('images', function() {
     gulp.src(file_road.imgSrc)
-        .pipe(imagemin({
-            optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）
-            progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
-            interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
-            multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
-        }))
+        // .pipe(imagemin({
+        //     optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）
+        //     progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+        //     interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
+        //     multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
+        // }))
         .pipe(gulp.dest(file_road.imgDst)) //本地目录
         .pipe(browserSync.stream());
 });

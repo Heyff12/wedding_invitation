@@ -1018,6 +1018,22 @@ html.fp-enabled,
 
 /* ==================-首页============================================================ */
 
+.music {
+  position: fixed;
+  top: 0.48rem;
+  right: 0.48rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: url('../img/normalmusic.svg') center center no-repeat;
+  background-size: 100% auto;
+  z-index: 100;
+}
+
+.music.dong {
+  -webkit-animation: zhuan_z 2s linear 0s infinite running;
+  animation: zhuan_z 2s linear 0s infinite running;
+}
+
 .section {
   position: relative;
   color: #7b4d42;
@@ -1030,6 +1046,30 @@ html.fp-enabled,
 .section .page {
   width: 100%;
   height: 100%;
+}
+
+@-webkit-keyframes zhuan_z {
+  50% {
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes zhuan_z {
+  50% {
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
 }
 
 /* =================mine* ============================================================ */
@@ -1049,6 +1089,7 @@ html.fp-enabled,
   vertical-align: bottom;
   margin-top: -2rem;
   margin-left: -0.8rem;
+  display: none;
 }
 
 #section1 .page_top img.dong {
@@ -1068,6 +1109,7 @@ html.fp-enabled,
   height: 8.266667rem;
   background: url('../img/round_bg.png') 0 0.96rem no-repeat;
   background-size: 9.2rem auto;
+  display: none;
 }
 
 #section1 .round_outer .img_round_out.dong {
@@ -1079,7 +1121,7 @@ html.fp-enabled,
   width: 7.2rem;
   height: 7.2rem;
   border-radius: 100%;
-  border: 0.053333rem solid #bfc9eb;
+  border: 0.053333rem solid #f9cdca;
   margin: 0 auto;
   text-align: center;
   padding: 0.16rem;
@@ -1094,7 +1136,7 @@ html.fp-enabled,
   padding: 0.16rem;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  background-color: #bfc9eb;
+  background-color: #f9cdca;
   overflow: hidden;
 }
 
@@ -1109,6 +1151,7 @@ html.fp-enabled,
   position: absolute;
   top: 3.466667rem;
   left: 0.8rem;
+  display: none;
 }
 
 #section1 .round_outer .round_flo.dong {
@@ -1135,9 +1178,15 @@ html.fp-enabled,
   line-height: 0.96rem;
 }
 
+#section1 .word_outer {
+  width: 100%;
+  margin-top: 0.533333rem;
+  height: 3.413333rem;
+}
+
 #section1 .word_out {
   height: 3.413333rem;
-  margin-top: 0.533333rem;
+  display: none;
 }
 
 #section1 .word_out.dong {
@@ -1212,6 +1261,7 @@ html.fp-enabled,
   height: auto;
   margin-left: -0.666667rem;
   margin-top: 0;
+  display: none;
 }
 
 #section1 .page_b img.dong {
@@ -1339,6 +1389,7 @@ html.fp-enabled,
   height: 9.6rem;
   overflow: hidden;
   transtion: all 2s;
+  display: none;
 }
 
 #section2 .page2_top ul li img {
@@ -1369,6 +1420,7 @@ html.fp-enabled,
   position: absolute;
   text-align: center;
   top: 0.96rem;
+  display: none;
 }
 
 #section2 .page2_top .img.dong {
@@ -1414,6 +1466,7 @@ html.fp-enabled,
 #section2 p.title span {
   display: block;
   margin: 0 auto;
+  display: none;
 }
 
 #section2 p.title span.dong {
@@ -1425,6 +1478,7 @@ html.fp-enabled,
   width: 100%;
   text-align: center;
   line-height: 0.693333rem;
+  display: none;
 }
 
 #section2 ul.word.dong {
@@ -1439,6 +1493,7 @@ html.fp-enabled,
   overflow: hidden;
   left: 0;
   bottom: 0;
+  display: none;
 }
 
 #section2 .img_b_left img {
@@ -1459,6 +1514,7 @@ html.fp-enabled,
   position: absolute;
   right: 0;
   bottom: 0;
+  display: none;
 }
 
 #section2 .img_b_right img {
@@ -1585,6 +1641,7 @@ html.fp-enabled,
   box-sizing: border-box;
   margin: 0 auto;
   background: #c6d0eb;
+  display: none;
 }
 
 #section3 .top_out .top img {
@@ -1605,6 +1662,7 @@ html.fp-enabled,
   bottom: -0.533333rem;
   background: url('../img/flags.png') left bottom no-repeat;
   background-size: 100% auto;
+  display: none;
 }
 
 #section3 .top_out .img_l.dong {
@@ -1620,6 +1678,7 @@ html.fp-enabled,
   top: -0.666667rem;
   background: url('../img/love.png') top left no-repeat;
   background-size: 100% auto;
+  display: none;
 }
 
 #section3 .top_out .img_t.dong {
@@ -1641,6 +1700,7 @@ html.fp-enabled,
 #section3 dl.page3_b dt img {
   width: 100%;
   height: auto;
+  display: none;
 }
 
 #section3 dl.page3_b dt img.dong {
@@ -1655,6 +1715,7 @@ html.fp-enabled,
   width: 4.8rem;
   line-height: 1.066667rem;
   font-size: 0.48rem;
+  display: none;
 }
 
 #section3 dl.page3_b dd.title {
@@ -1719,6 +1780,7 @@ html.fp-enabled,
   height: auto;
   margin-left: -0.666667rem;
   margin-top: 0;
+  display: none;
 }
 
 #section3 .page_b img.dong {
@@ -1741,7 +1803,8 @@ html.fp-enabled,
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0 auto;
-  background: #efbed4;
+  background: #f9cdca;
+  display: none;
 }
 
 #section4 .top_out .top img {
@@ -1764,6 +1827,7 @@ html.fp-enabled,
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   background-size: 100% auto;
+  display: none;
 }
 
 #section4 .top_out .img_l.dong {
@@ -1779,6 +1843,7 @@ html.fp-enabled,
   top: -0.666667rem;
   background: url('../img/love.png') top left no-repeat;
   background-size: 100% auto;
+  display: none;
 }
 
 #section4 .top_out .img_t.dong {
@@ -1800,6 +1865,7 @@ html.fp-enabled,
 #section4 dl.page4_bdl dt img {
   width: 100%;
   height: auto;
+  display: none;
 }
 
 #section4 dl.page4_bdl dt img.dong {
@@ -1814,6 +1880,7 @@ html.fp-enabled,
   width: 4.8rem;
   line-height: 1.066667rem;
   font-size: 0.48rem;
+  display: none;
 }
 
 #section4 dl.page4_bdl dd.title {
@@ -1878,6 +1945,7 @@ html.fp-enabled,
   height: auto;
   margin-left: 0.32rem;
   margin-top: 0;
+  display: none;
 }
 
 #section4 .page4_b img.dong {
@@ -1921,7 +1989,7 @@ html.fp-enabled,
 
 #section5 .top_out {
   width: 100%;
-  height: 6.266667rem;
+  height: 6.666667rem;
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -1933,11 +2001,12 @@ html.fp-enabled,
   height: 6.266667rem;
   margin: 0 auto;
   text-align: center;
+  display: none;
 }
 
 #section5 .top_out .top img {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
 }
 
 #section5 .top_out .top.dong {
@@ -1961,6 +2030,7 @@ html.fp-enabled,
   top: -0.533333rem;
   background: url('../img/flo_left.png') left bottom no-repeat;
   background-size: 100% auto;
+  display: none;
 }
 
 #section5 .top_mid .img_l.dong {
@@ -1977,6 +2047,7 @@ html.fp-enabled,
   top: -0.666667rem;
   background: url('../img/flo_right.png') top left no-repeat;
   background-size: 100% auto;
+  display: none;
 }
 
 #section5 .top_mid .img_t.dong {
@@ -1988,6 +2059,7 @@ html.fp-enabled,
   width: 100%;
   text-align: center;
   margin-top: 0.266667rem;
+  display: none;
 }
 
 #section5 .top_mid .mid_t.dong {
@@ -1998,6 +2070,7 @@ html.fp-enabled,
 #section5 .top_mid .mid_b {
   width: 100%;
   text-align: center;
+  display: none;
 }
 
 #section5 .top_mid .mid_b.dong {
@@ -2010,6 +2083,7 @@ html.fp-enabled,
   height: 0.026667rem;
   background-color: #c6d0eb;
   margin: 0.266667rem auto;
+  display: none;
 }
 
 #section5 .top_mid .mid_m.dong {
@@ -2019,6 +2093,8 @@ html.fp-enabled,
 
 #section5 ul.page5_ul {
   width: 100%;
+  height: 6.293333rem;
+  overflow: hidden;
 }
 
 #section5 ul.page5_ul li {
@@ -2027,6 +2103,7 @@ html.fp-enabled,
   height: auto;
   overflow: hidden;
   transtion: all 2s;
+  display: none;
 }
 
 #section5 ul.page5_ul li img {
@@ -2132,6 +2209,7 @@ html.fp-enabled,
 #section6 .page6_body img {
   height: 100%;
   width: auto;
+  display: none;
 }
 
 #section6 .page6_body img.page6_img.dong {
@@ -2162,6 +2240,7 @@ html.fp-enabled,
 
 #section6 .page6_body .page6_word p {
   text-align: center;
+  display: none;
 }
 
 #section6 .page6_body .page6_word p.dong {
@@ -2173,6 +2252,7 @@ html.fp-enabled,
   position: absolute;
   top: 0;
   left: 1.333333rem;
+  display: none;
 }
 
 #section6 .page6_body .page6_word .page6_word_l img {
@@ -2189,6 +2269,7 @@ html.fp-enabled,
   position: absolute;
   top: 0.133333rem;
   right: 1.333333rem;
+  display: none;
 }
 
 #section6 .page6_body .page6_word .page6_word_r img {
@@ -2208,6 +2289,7 @@ html.fp-enabled,
   top: 0;
   left: 0;
   overflow: hidden;
+  display: none;
 }
 
 #section6 .page6_top img {
@@ -2231,6 +2313,7 @@ html.fp-enabled,
 
 #section6 .page6_b img {
   vertical-align: bottom;
+  display: none;
 }
 
 #section6 .page6_b img.img_b1 {
@@ -2322,12 +2405,14 @@ html.fp-enabled,
 #section7 .page7_t_out {
   width: 100%;
   height: 2.346667rem;
+  overflow: hidden;
 }
 
 #section7 .page7_t_out .page7_t {
   width: 100%;
   position: relative;
   text-align: center;
+  display: none;
 }
 
 #section7 .page7_t_out .page7_t img.img1 {
@@ -2391,6 +2476,7 @@ html.fp-enabled,
 #section7 .page7_m img {
   width: 100%;
   height: auto;
+  display: none;
 }
 
 #section7 .page7_m img.dong {
@@ -2409,6 +2495,7 @@ html.fp-enabled,
 #section7 .page7_heart img {
   width: 2.613333rem;
   height: auto;
+  display: none;
 }
 
 #section7 .page7_heart img.dong {
@@ -2419,8 +2506,9 @@ html.fp-enabled,
 #section7 .page7_b {
   width: 100%;
   position: absolute;
-  height: 7.493333rem;
+  height: 7.36rem;
   bottom: 0;
+  display: none;
 }
 
 #section7 .page7_b img {
@@ -2538,6 +2626,7 @@ html.fp-enabled,
   vertical-align: bottom;
   margin-top: -2rem;
   margin-left: -0.8rem;
+  display: none;
 }
 
 #section8 .page_top img.dong {
@@ -2560,6 +2649,7 @@ html.fp-enabled,
   box-sizing: border-box;
   background: #c6d0eb;
   margin: 0 auto;
+  display: none;
 }
 
 #section8 .page8_img .page8_img_in img {
@@ -2578,6 +2668,7 @@ html.fp-enabled,
   top: 1.68rem;
   left: 50%;
   margin-left: -1.866667rem;
+  display: none;
 }
 
 #section8 .page8_img .round_flo.dong {
@@ -2598,12 +2689,14 @@ html.fp-enabled,
   box-sizing: border-box;
   margin: -1.92rem auto 0;
   position: relative;
+  display: none;
 }
 
 #section8 .page8_word p.title {
   font-size: 0.48rem;
   text-align: center;
   line-height: 0.853333rem;
+  display: none;
 }
 
 #section8 .page8_word p.title.dong {
@@ -2621,6 +2714,7 @@ html.fp-enabled,
 #section8 .page8_word ul.ul8 li {
   width: 6.4rem;
   margin: 0 auto;
+  display: none;
 }
 
 #section8 .page8_word ul.ul8 li::after {
@@ -2645,6 +2739,7 @@ html.fp-enabled,
   margin-left: -0.026667rem;
   height: 4.533333rem;
   bottom: 0.4rem;
+  display: none;
 }
 
 #section8 .page8_word ul.ul_flower li {
@@ -2680,6 +2775,7 @@ html.fp-enabled,
   height: auto;
   margin-left: -0.666667rem;
   margin-top: 0;
+  display: none;
 }
 
 #section8 .page_b img.dong {
@@ -2716,6 +2812,7 @@ html.fp-enabled,
   width: 3.946667rem;
   height: 2.133333rem;
   overflow: hidden;
+  display: none;
 }
 
 #section9 .page9_l img {
@@ -2736,6 +2833,7 @@ html.fp-enabled,
   width: 4.213333rem;
   height: ;
   overflow: hidden;
+  display: none;
 }
 
 #section9 .page9_r img {
@@ -2762,6 +2860,7 @@ html.fp-enabled,
   height: auto;
   margin-left: -0.666667rem;
   margin-top: 0;
+  display: none;
 }
 
 #section9 .page_b img.dong {
@@ -2803,6 +2902,7 @@ html.fp-enabled,
 #section9 p.title span {
   display: block;
   margin: 0 auto;
+  display: none;
 }
 
 #section9 p.title span.dong {
@@ -2818,11 +2918,13 @@ html.fp-enabled,
   box-sizing: border-box;
   margin: 0 auto 0;
   position: relative;
+  display: none;
 }
 
 #section9 .page9_body .page9_b_t {
   width: 100%;
   height: 5.6rem;
+  display: none;
 }
 
 #section9 .page9_body .page9_b_t img {
@@ -2841,6 +2943,7 @@ html.fp-enabled,
   line-height: 0.693333rem;
   font-size: 0.373333rem;
   margin: 0 auto;
+  display: none;
 }
 
 #section9 .page9_body dl dt {
@@ -2865,6 +2968,7 @@ html.fp-enabled,
   width: 1.76rem;
   height: 2.213333rem;
   overflow: hidden;
+  display: none;
 }
 
 #section9 .page9_body .cage img {
@@ -2891,6 +2995,7 @@ html.fp-enabled,
   width: 3.946667rem;
   height: 2.133333rem;
   overflow: hidden;
+  display: none;
 }
 
 #section10 .page9_l img {
@@ -2911,6 +3016,7 @@ html.fp-enabled,
   width: 4.213333rem;
   height: ;
   overflow: hidden;
+  display: none;
 }
 
 #section10 .page9_r img {
@@ -2937,6 +3043,7 @@ html.fp-enabled,
   height: auto;
   margin-left: -0.666667rem;
   margin-top: 0;
+  display: none;
 }
 
 #section10 .page_b img.dong {
@@ -2978,6 +3085,7 @@ html.fp-enabled,
 #section10 p.title span {
   display: block;
   margin: 0 auto;
+  display: none;
 }
 
 #section10 p.title span.dong {
@@ -2990,6 +3098,7 @@ html.fp-enabled,
   margin: 0 auto 0;
   padding-bottom: 0.266667rem;
   position: relative;
+  display: none;
 }
 
 #section10 .page9_body form {
@@ -3039,6 +3148,7 @@ html.fp-enabled,
   width: 1.76rem;
   height: 2.213333rem;
   overflow: hidden;
+  display: none;
 }
 
 #section10 .page9_body .cage img {

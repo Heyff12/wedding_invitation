@@ -5,10 +5,23 @@ require(['../require-config'], function () {
         if ($.browser.msie && $.browser.version < 10) {
             $('body').addClass('ltie10');
         }
+        var myVideo = document.getElementById("media");
+        $('.js_music').on('click', function () {
+            var da_c = $(this).attr('data-click');
+            if (da_c == '1') {
+                $(this).attr('data-click', '0');
+                $(this).removeClass('dong');
+                myVideo.pause();
+            } else {
+                $(this).attr('data-click', '1');
+                $(this).addClass('dong');
+                myVideo.play();
+            }
+        });
         $(document).ready(function () {
             $('#fullpage').fullpage({
                 //sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
-                anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thPage', '7thpage', '8thpage', '9thPage', 'tenthpage', 'eleventhpage'],
+                anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '7thpage', '8thpage', '9thpage', 'tenthpage', 'eleventhpage'],
                 //menu: '#menu',//文字导航
                 scrollingSpeed: 1000, //滑动速度
                 //slidesNavigation:true,//幻灯片底部远点导航
@@ -59,7 +72,7 @@ require(['../require-config'], function () {
                         $('.js_page3_img_t').hide().removeClass('dong');
                         //中间文字
                         $('.js_page3_bdl').find('dt').find('img').hide().removeClass('dong');
-                        $('.js_page3_bdl').find('dd').show().hide().removeClass('dong');
+                        $('.js_page3_bdl').find('dd').hide().removeClass('dong');
                         //底部花加载
                         $('.js_page3_b').find('img').hide().removeClass('dong');
                     } else if (index == 4) {
@@ -151,18 +164,18 @@ require(['../require-config'], function () {
                             $('.js_word_out').show().addClass('dong');
                             $('.js_word_out').find('span').addClass('dong');
                         }, 1200);
-                        // setTimeout(function(){
-                        //     $('.js_word_out').find('span').addClass('dong');
-                        // },1500)
                         //底部花加载
-                        $('.js_page_b').find('img').show().addClass('dong');
+                        setTimeout(function () {
+                            //$('.js_word_out').find('span').addClass('dong');
+                            $('.js_page_b').find('img').show().addClass('dong');
+                        }, 800);
                     } else if (index == 2) {
                         //顶部花
                         $('.js_page2_top').find('.img').show().addClass('dong');
                         $('.js_page2_top').find('.js_li_l').show().addClass('dong');
                         $('.js_page2_top').find('.js_li_r').show().addClass('dong');
                         //中间文字
-                        $('.js_page2_title').find('span').show().addClass('dong');
+                        $('.js_page2_title').find('span').css({ 'display': 'block' }).addClass('dong');
                         $('.js_page2_word').show().addClass('dong');
                         //底部图片
                         setTimeout(function () {
@@ -259,10 +272,12 @@ require(['../require-config'], function () {
                         $('.js_page9_l').show().addClass('dong');
                         $('.js_page9_r').show().addClass('dong');
                         //文字
-                        $('.js_page9_title').find('span').show().addClass('dong');
+                        $('.js_page9_title').find('span').css({ 'display': 'block' }).addClass('dong');
                         $('.js_page9_body').show().addClass('dong');
                         setTimeout(function () {
                             $('.js_page9_body').find('.cage').show().addClass('dong');
+                            $('.js_page9_body').find('.page9_b_t').hide().show().addClass('dong');
+                            $('.js_page9_body').find('dl').show().addClass('dong');
                         }, 1000);
                         //底部花加载
                         $('.js_page9_b').find('img').show().addClass('dong');
@@ -271,7 +286,7 @@ require(['../require-config'], function () {
                         $('.js_page10_l').show().addClass('dong');
                         $('.js_page10_r').show().addClass('dong');
                         //文字
-                        $('.js_page10_title').find('span').show().addClass('dong');
+                        $('.js_page10_title').find('span').css({ 'display': 'block' }).addClass('dong');
                         $('.js_page10_body').show().addClass('dong');
                         setTimeout(function () {
                             $('.js_page10_body').find('.page9_b_t').show().addClass('dong');
