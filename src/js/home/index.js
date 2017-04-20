@@ -1,9 +1,52 @@
+function hideMenu() {
+    //WeixinJSBridge.call('hideOptionMenu');
+    WeixinJSBridge.call('hideToolbar');
+    // WeixinJSBridge.on('menu:share:timeline', function(argv) {
+    //     WeixinJSBridge.invoke('shareTimeline', {
+    //         "appid": "", //appid 设置空就好了。
+    //         "img_url": 'http://www.yaya12.com/wedding/static/img/img.png', //分享时所带的图片路径
+    //         "img_width": "120", //图片宽度
+    //         "img_height": "120", //图片高度
+    //         "link": 'http://www.yaya12.com/wedding/html/index.html', //分享附带链接地址
+    //         "desc": "今生今世，之子之后，与子偕老；每天每夜，静观花开花落，笑看云卷云舒！", //分享内容介绍
+    //         "title": "婚礼邀请函-谭秀成&禇君芳"
+    //     }, function(res) { /*** 回调函数，最好设置为空 ***/ });
+    // });
+    WeixinJSBridge.invoke('sendAppMessage', {
+            "appid": "", //appid 设置空就好了。
+            "img_url": 'http://www.yaya12.com/wedding/static/img/img.png', //分享时所带的图片路径
+            "img_width": "120", //图片宽度
+            "img_height": "120", //图片高度
+            "link": 'http://www.yaya12.com/wedding/html/index.html', //分享附带链接地址
+            "desc": "今生今世，之子之后，与子偕老；每天每夜，静观花开花落，笑看云卷云舒！", //分享内容介绍
+            "title": "婚礼邀请函-谭秀成&禇君芳"
+        }, function(res) { /*** 回调函数，最好设置为空 ***/ });
+    WeixinJSBridge.invoke('shareTimeline', {
+            "appid": "", //appid 设置空就好了。
+            "img_url": 'http://www.yaya12.com/wedding/static/img/img.png', //分享时所带的图片路径
+            "img_width": "120", //图片宽度
+            "img_height": "120", //图片高度
+            "link": 'http://www.yaya12.com/wedding/html/index.html', //分享附带链接地址
+            "desc": "今生今世，之子之后，与子偕老；每天每夜，静观花开花落，笑看云卷云舒！", //分享内容介绍
+            "title": "婚礼邀请函-谭秀成&禇君芳"
+        }, function(res) { /*** 回调函数，最好设置为空 ***/ });
+}
+if (typeof WeixinJSBridge == "undefined") {
+    if (document.addEventListener) {
+        document.addEventListener('WeixinJSBridgeReady', hideMenu, false);
+    } else if (document.attachEvent) {
+        document.attachEvent('WeixinJSBridgeReady', hideMenu);
+        document.attachEvent('onWeixinJSBridgeReady', hideMenu);
+    }
+} else {
+    hideMenu();
+}
 require(['../require-config'], function() {
     require(["jquery", "jqueryui", "fullpage"], function($, jqueryui, fullpage) {
         if ($.browser.msie && $.browser.version < 10) {
             $('body').addClass('ltie10');
         }
-        var myVideo=document.getElementById("media");
+        var myVideo = document.getElementById("media");
         $('.js_music').on('click', function() {
             var da_c = $(this).attr('data-click');
             if (da_c == '1') {

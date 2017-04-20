@@ -28,12 +28,15 @@ var gulp = require('gulp'), //基础库
     livereload = require('gulp-livereload'), //livereload,可以合上面配合使用（暂时没用）
     browserSync = require('browser-sync').create(), //页面实时刷新
     babel = require("gulp-babel"); //编译es6
+var http = require('http');
+var server = http.createServer();
+server.setMaxListeners(0);//0或infinite表示无限
 var file_road = {
     cssSrc: './src/less/**/*.less',
     cssDst: './static/css',
 
     // imgSrc: ['./src/img/**/*','./src/img_test/**/*'],
-    imgSrc: './src/img/**/*',
+    imgSrc: './src/img/**/*.{png,jpg,jpeg,gif,ico,svg}',
     imgDst: './static/img/',
 
     jsLocal: './src/js/**/*.js',
@@ -144,8 +147,14 @@ gulp.task('images', function() {
         //     interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
         //     multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
         // }))
+        .pipe(imagemin([
+            imagemin.gifsicle({ interlaced: true }),
+            imagemin.jpegtran({ progressive: true }),
+            imagemin.optipng({ optimizationLevel: 2 }),
+            imagemin.svgo({ plugins: [{ removeViewBox: true }] })
+        ], { verbose: false }))
         .pipe(gulp.dest(file_road.imgDst)) //本地目录
-        .pipe(browserSync.stream());
+        //.pipe(browserSync.stream());
 });
 // 清空图片、样式、js---最终使用del------------------------------------------------------------------------------------------------------------------------------------------
 gulp.task('del', function(cb) {
