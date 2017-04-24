@@ -2930,17 +2930,20 @@ html.fp-enabled,
   width: 100%;
   height: 5.6rem;
   display: none;
+  text-align: center;
 }
 
 #section9 .page9_body .page9_b_t a {
   display: inline-block;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 #section9 .page9_body .page9_b_t img {
   width: 100%;
   height: auto;
+  vertical-align: middle;
 }
 
 #section9 .page9_body .page9_b_t.dong {

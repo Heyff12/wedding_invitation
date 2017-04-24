@@ -6,6 +6,10 @@
 // 引入 gulp及组件
 var gulp = require('gulp'), //基础库
     imagemin = require('gulp-imagemin'), //图片压缩
+    smushit = require('gulp-smushit'),//压缩比例的较大
+    imageResize = require('gulp-image-resize'),//压缩比例---no
+    imageminPngquant = require('imagemin-pngquant'),//
+    imageisux = require('gulp-imageisux')
     less = require('gulp-less'), //less
     minifycss = require('gulp-minify-css'), //css压缩
     autoprefixer = require('gulp-autoprefixer'), //使用gulp-autoprefixer根据设置浏览器版本自动处理浏览器前缀
@@ -30,7 +34,7 @@ var gulp = require('gulp'), //基础库
     babel = require("gulp-babel"); //编译es6
 var http = require('http');
 var server = http.createServer();
-server.setMaxListeners(0);//0或infinite表示无限
+server.setMaxListeners(0); //0或infinite表示无限
 var file_road = {
     cssSrc: './src/less/**/*.less',
     cssDst: './static/css',
@@ -152,7 +156,14 @@ gulp.task('images', function() {
             imagemin.jpegtran({ progressive: true }),
             imagemin.optipng({ optimizationLevel: 7 }),
             imagemin.svgo({ plugins: [{ removeViewBox: true }] })
-        ], { verbose: false }))
+        ], { verbose: true }))
+        // .pipe(imageResize({
+        //     width: 200
+        // }))
+        // .pipe(smushit({
+        //     verbose: true
+        // }))
+        //.pipe(imageisux(file_road.imgDst,true))
         .pipe(gulp.dest(file_road.imgDst)) //本地目录
         //.pipe(browserSync.stream());
 });

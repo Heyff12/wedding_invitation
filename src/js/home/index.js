@@ -69,17 +69,7 @@ require(['../require-config'], function() {
                 loopBottom: false, //滚动到最底部后是否滚回顶部
                 css3: true, //是否使用 CSS3 transforms 滚动
                 afterRender: function() {
-                    //顶部花加载
-                    // $('.js_page_top').find('img').hide().removeClass('dong');
-                    // //中间图片加载
-                    // $('.js_img_round_out').hide().removeClass('dong');
-                    // //中间图片周边花树枝加载
-                    // $('.js_round_flo').hide().removeClass('dong');
-                    // //文字加载
-                    // $('.js_word_out').hide().removeClass('dong');
-                    // $('.js_word_out').find('span').removeClass('dong');
-                    // //底部花加载
-                    // $('.js_page_b').find('img').hide().removeClass('dong');
+                    console.log('load');
                 },
                 onLeave: function(index, nextIndex, direction) {
                     console.log("onLeave--" + "index: " + index + " nextIndex: " + nextIndex + " direction: " + direction);
