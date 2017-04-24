@@ -71,7 +71,8 @@ require(['../require-config'], function () {
                 loopBottom: false, //滚动到最底部后是否滚回顶部
                 css3: true, //是否使用 CSS3 transforms 滚动
                 afterRender: function afterRender() {
-                    console.log('load');
+                    console.log('加载完成！');
+                    $('#loading_mask').hide();
                 },
                 onLeave: function onLeave(index, nextIndex, direction) {
                     console.log("onLeave--" + "index: " + index + " nextIndex: " + nextIndex + " direction: " + direction);
