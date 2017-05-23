@@ -44,7 +44,27 @@ if (typeof WeixinJSBridge == "undefined") {
     hideMenu();
 }
 require(['../require-config'], function () {
-    require(["jquery", "jqueryui", "fullpage"], function ($, jqueryui, fullpage) {
+    require(["jquery", "jqueryui", "fullpage", "slimscroll", "wx"], function ($, jqueryui, fullpage, slimscroll, wx) {
+        $.ajax({
+            url: 'https://wxmp.qfpay.com/v1/manage/wxjs_conf',
+            dataType: json,
+            data: {
+                'app_id': 'wxeb6e671f5571abce',
+                'app_secret': 'xxx',
+                'url': 'http://www.yaya12.com/wedding/html/index.html',
+                'format': 'jsonp'
+            },
+            success: function success(data) {
+                if (data.respcd != '0000') {
+                    console.log('success---success');
+                } else {
+                    console.log('success---error');
+                }
+            },
+            error: function error(data) {
+                console.log('error---' + data);
+            }
+        });
         if ($.browser.msie && $.browser.version < 10) {
             $('body').addClass('ltie10');
         }

@@ -1,5 +1,3 @@
-'use strict';
-
 function hideMenu() {
     //WeixinJSBridge.call('hideOptionMenu');
     WeixinJSBridge.call('hideToolbar');
@@ -22,7 +20,7 @@ function hideMenu() {
         "link": 'http://www.yaya12.com/wedding/html/index.html', //分享附带链接地址
         "desc": "今生今世，之子之后，与子偕老；每天每夜，静观花开花落，笑看云卷云舒！", //分享内容介绍
         "title": "婚礼邀请函-谭秀成&禇君芳"
-    }, function (res) {/*** 回调函数，最好设置为空 ***/});
+    }, function(res) { /*** 回调函数，最好设置为空 ***/ });
     WeixinJSBridge.invoke('shareTimeline', {
         "appid": "", //appid 设置空就好了。
         "img_url": 'http://www.yaya12.com/wedding/static/img/img.png', //分享时所带的图片路径
@@ -31,7 +29,7 @@ function hideMenu() {
         "link": 'http://www.yaya12.com/wedding/html/index.html', //分享附带链接地址
         "desc": "今生今世，之子之后，与子偕老；每天每夜，静观花开花落，笑看云卷云舒！", //分享内容介绍
         "title": "婚礼邀请函-谭秀成&禇君芳"
-    }, function (res) {/*** 回调函数，最好设置为空 ***/});
+    }, function(res) { /*** 回调函数，最好设置为空 ***/ });
 }
 if (typeof WeixinJSBridge == "undefined") {
     if (document.addEventListener) {
@@ -43,13 +41,33 @@ if (typeof WeixinJSBridge == "undefined") {
 } else {
     hideMenu();
 }
-require(['../require-config'], function () {
-    require(["jquery", "jqueryui", "fullpage"], function ($, jqueryui, fullpage) {
+require(['../require-config'], function() {
+    require(["jquery", "jqueryui", "fullpage", "slimscroll", "wx"], function($, jqueryui, fullpage, slimscroll, wx) {
+        $.ajax({
+            url: 'https://wxmp.qfpay.com/v1/manage/wxjs_conf',
+            dataType: json,
+            data: {
+                'app_id': 'wxeb6e671f5571abce',
+                'app_secret': 'xxx',
+                'url': 'http://www.yaya12.com/wedding/html/index.html',
+                'format': 'jsonp',
+            },
+            success: function(data) {
+                if (data.respcd != '0000') {
+                    console.log('success---success');
+                } else {
+                    console.log('success---error');
+                }
+            },
+            error: function(data) {
+                console.log('error---' + data);
+            }
+        });
         if ($.browser.msie && $.browser.version < 10) {
             $('body').addClass('ltie10');
         }
         var myVideo = document.getElementById("media");
-        $('.js_music').on('click', function () {
+        $('.js_music').on('click', function() {
             var da_c = $(this).attr('data-click');
             if (da_c == '1') {
                 $(this).attr('data-click', '0');
@@ -61,7 +79,7 @@ require(['../require-config'], function () {
                 myVideo.play();
             }
         });
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#fullpage').fullpage({
                 //sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
                 anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '7thpage', '8thpage', '9thpage', 'tenthpage', 'eleventhpage'],
@@ -85,11 +103,11 @@ require(['../require-config'], function () {
                 // slidesNavigation:false,//是否显示横向幻灯片导航
                 // slidesNavPosition:bottom,//横向幻灯片导航位置
                 scrollOverflow: true, //内容超过慢跑后是否显示滚动条，true--jquery.slimscroll插件
-                afterRender: function afterRender() {
+                afterRender: function() {
                     console.log('加载完成！');
                     $('#loading_mask').hide();
                 },
-                onLeave: function onLeave(index, nextIndex, direction) {
+                onLeave: function(index, nextIndex, direction) {
                     console.log("onLeave--" + "index: " + index + " nextIndex: " + nextIndex + " direction: " + direction);
                     if (index == 1) {
                         //顶部花加载
@@ -199,7 +217,7 @@ require(['../require-config'], function () {
                         $('.js_page10_b').find('img').hide().removeClass('dong');
                     }
                 },
-                afterLoad: function afterLoad(anchorLink, index) {
+                afterLoad: function(anchorLink, index) {
                     console.log("afterLoad--" + "anchorLink: " + anchorLink + " index: " + index);
                     if (index == 1) {
                         //顶部花加载
@@ -209,12 +227,12 @@ require(['../require-config'], function () {
                         //中间图片周边花树枝加载
                         $('.js_round_flo').show().addClass('dong');
                         //文字加载
-                        setTimeout(function () {
-                            $('.js_word_out').show().addClass('dong');
-                            $('.js_word_out').find('span').addClass('dong');
-                        }, 1200);
-                        //底部花加载
-                        setTimeout(function () {
+                        setTimeout(function() {
+                                $('.js_word_out').show().addClass('dong');
+                                $('.js_word_out').find('span').addClass('dong');
+                            }, 1200)
+                            //底部花加载
+                        setTimeout(function() {
                             //$('.js_word_out').find('span').addClass('dong');
                             $('.js_page_b').find('img').show().addClass('dong');
                         }, 800);
@@ -227,56 +245,56 @@ require(['../require-config'], function () {
                         $('.js_page2_title').find('span').css({ 'display': 'block' }).addClass('dong');
                         $('.js_page2_word').show().addClass('dong');
                         //底部图片
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $('.js_img_b_left').show().addClass('dong');
                             $('.js_img_b_right').show().addClass('dong');
-                        }, 1200);
+                        }, 1200)
                     } else if (index == 3) {
                         //顶部花
                         $('.js_page3_top').show().addClass('dong');
-                        setTimeout(function () {
-                            $('.js_page3_img_l').show().addClass('dong');
-                            $('.js_page3_img_t').show().addClass('dong');
-                        }, 1200);
-                        //中间文字
-                        setTimeout(function () {
-                            $('.js_page3_bdl').find('dt').find('img').show().addClass('dong');
-                            $('.js_page3_bdl').find('dd').show().addClass('dong');
-                        }, 800);
-                        //底部花加载
-                        setTimeout(function () {
+                        setTimeout(function() {
+                                $('.js_page3_img_l').show().addClass('dong');
+                                $('.js_page3_img_t').show().addClass('dong');
+                            }, 1200)
+                            //中间文字
+                        setTimeout(function() {
+                                $('.js_page3_bdl').find('dt').find('img').show().addClass('dong');
+                                $('.js_page3_bdl').find('dd').show().addClass('dong');
+                            }, 800)
+                            //底部花加载
+                        setTimeout(function() {
                             $('.js_page3_b').find('img').show().addClass('dong');
-                        }, 2000);
+                        }, 2000)
                     } else if (index == 4) {
                         //顶部花
                         $('.js_page4_top').show().addClass('dong');
-                        setTimeout(function () {
-                            $('.js_page4_img_l').show().addClass('dong');
-                            $('.js_page4_img_t').show().addClass('dong');
-                        }, 1200);
-                        //中间文字
-                        setTimeout(function () {
-                            $('.js_page4_bdl').find('dt').find('img').show().addClass('dong');
-                            $('.js_page4_bdl').find('dd').show().addClass('dong');
-                        }, 800);
-                        //底部花加载
-                        setTimeout(function () {
+                        setTimeout(function() {
+                                $('.js_page4_img_l').show().addClass('dong');
+                                $('.js_page4_img_t').show().addClass('dong');
+                            }, 1200)
+                            //中间文字
+                        setTimeout(function() {
+                                $('.js_page4_bdl').find('dt').find('img').show().addClass('dong');
+                                $('.js_page4_bdl').find('dd').show().addClass('dong');
+                            }, 800)
+                            //底部花加载
+                        setTimeout(function() {
                             $('.js_page4_b').find('img').show().addClass('dong');
-                        }, 2000);
+                        }, 2000)
                     } else if (index == 5) {
                         //顶部花
                         $('.js_page5_top').show().addClass('dong');
                         //中间文字
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $('.js_page5_img_l').show().addClass('dong');
                             $('.js_page5_img_t').show().addClass('dong');
-                        }, 800);
-                        setTimeout(function () {
-                            $('.js_page5_midt').show().addClass('dong');
-                            $('.js_page5_midm').show().addClass('dong');
-                            $('.js_page5_midb').show().addClass('dong');
-                        }, 1000);
-                        //底部花                        
+                        }, 800)
+                        setTimeout(function() {
+                                $('.js_page5_midt').show().addClass('dong');
+                                $('.js_page5_midm').show().addClass('dong');
+                                $('.js_page5_midb').show().addClass('dong');
+                            }, 1000)
+                            //底部花                        
                         $('.js_page5_ul').find('.js_li_l').show().addClass('dong');
                         $('.js_page5_ul').find('.js_li_r').show().addClass('dong');
                     } else if (index == 6) {
@@ -287,19 +305,19 @@ require(['../require-config'], function () {
                         //中间画
                         $('.js_page6_img').show().addClass('dong');
                         $('.js_tm_bg').show().addClass('dong');
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $('.js_page6_word_l').show().addClass('dong');
                             $('.js_page6_word_r').show().addClass('dong');
                             $('.js_page6_word').find('p').show().addClass('dong');
-                        }, 1000);
+                        }, 1000)
                     } else if (index == 7) {
                         //顶部花
                         $('.js_page7_t').show().addClass('dong');
                         $('.js_page7_m').find('img').show().addClass('dong');
                         $('.js_page7_b').show().addClass('dong');
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $('.js_page7_heart').find('img').show().addClass('dong');
-                        }, 1000);
+                        }, 1000)
                     } else if (index == 8) {
                         //顶部花加载
                         $('.js_page8_top').find('img').show().addClass('dong');
@@ -310,7 +328,7 @@ require(['../require-config'], function () {
                         //文字加载
                         $('.js_page8_word').show().addClass('dong');
                         $('.js_page8_word').find('p').show().addClass('dong');
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $('.js_ul8').find('li').show().addClass('dong');
                             $('.js_ul_flower').show().addClass('dong');
                         }, 1000);
@@ -323,7 +341,7 @@ require(['../require-config'], function () {
                         //文字
                         $('.js_page9_title').find('span').css({ 'display': 'block' }).addClass('dong');
                         $('.js_page9_body').show().addClass('dong');
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $('.js_page9_body').find('.cage').show().addClass('dong');
                             $('.js_page9_body').find('.page9_b_t').hide().show().addClass('dong');
                             $('.js_page9_body').find('dl').show().addClass('dong');
@@ -337,7 +355,7 @@ require(['../require-config'], function () {
                         //文字
                         $('.js_page10_title').find('span').css({ 'display': 'block' }).addClass('dong');
                         $('.js_page10_body').show().addClass('dong');
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $('.js_page10_body').find('.page9_b_t').show().addClass('dong');
                             $('.js_page10_body').find('dl').show().addClass('dong');
                             $('.js_page10_body').find('.cage').show().addClass('dong');
@@ -345,8 +363,10 @@ require(['../require-config'], function () {
                         //底部花加载
                         $('.js_page10_b').find('img').show().addClass('dong');
                     }
-                }
+                },
             });
+
+
         });
-    });
-});
+    })
+})

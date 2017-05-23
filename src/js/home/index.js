@@ -42,27 +42,7 @@ if (typeof WeixinJSBridge == "undefined") {
     hideMenu();
 }
 require(['../require-config'], function() {
-    require(["jquery", "jqueryui", "fullpage", "wx"], function($, jqueryui, fullpage, wx) {
-        $.ajax({
-            url: 'https://wxmp.qfpay.com/v1/manage/wxjs_conf',
-            dataType: json,
-            data: {
-                'app_id': 'wxeb6e671f5571abce',
-                'app_secret': 'xxx',
-                'url': 'http://www.yaya12.com/wedding/html/index.html',
-                'format': 'jsonp',
-            },
-            success: function(data) {
-                if (data.respcd != '0000') {
-                    console.log('success---success');
-                } else {
-                    console.log('success---error');
-                }
-            },
-            error: function(data) {
-                console.log('error---'+data);
-            }
-        });
+    require(["jquery", "jqueryui", "fullpage"], function($, jqueryui, fullpage) {
         if ($.browser.msie && $.browser.version < 10) {
             $('body').addClass('ltie10');
         }
@@ -102,7 +82,7 @@ require(['../require-config'], function() {
                 // showActiveTooltip:false,//true,滚动那个页面，对应的小圆点显示提示
                 // slidesNavigation:false,//是否显示横向幻灯片导航
                 // slidesNavPosition:bottom,//横向幻灯片导航位置
-                scrollOverflow:true,//内容超过慢跑后是否显示滚动条，true--jquery.slimscroll插件
+                scrollOverflow: true, //内容超过慢跑后是否显示滚动条，true--jquery.slimscroll插件
                 afterRender: function() {
                     console.log('加载完成！');
                     $('#loading_mask').hide();
