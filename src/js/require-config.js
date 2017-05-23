@@ -9,6 +9,7 @@ require.config({
         "fullpage": "plug/jquery.fullpage",
         "scrolloverflow": "plug/scrolloverflow", //如果 scrollOverflow 设置为 true，则需要引入 jquery.slimscroll.min.js，一般情况下不需要
         "easings": "plug/jquery.easings.min", //jquery.easings.min.js 是必须的，用于 easing 参数，也可以使用完整的 jQuery UI 代替
+        "wx": "plug/jweixin-1.2.0",//微信菜单屏蔽
     },
     shim: {　
         'zepto': {　　　　　　　　　　　　　　　　

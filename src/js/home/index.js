@@ -13,23 +13,23 @@ function hideMenu() {
     //     }, function(res) { /*** 回调函数，最好设置为空 ***/ });
     // });
     WeixinJSBridge.invoke('sendAppMessage', {
-            "appid": "", //appid 设置空就好了。
-            "img_url": 'http://www.yaya12.com/wedding/static/img/img.png', //分享时所带的图片路径
-            "img_width": "120", //图片宽度
-            "img_height": "120", //图片高度
-            "link": 'http://www.yaya12.com/wedding/html/index.html', //分享附带链接地址
-            "desc": "今生今世，之子之后，与子偕老；每天每夜，静观花开花落，笑看云卷云舒！", //分享内容介绍
-            "title": "婚礼邀请函-谭秀成&禇君芳"
-        }, function(res) { /*** 回调函数，最好设置为空 ***/ });
+        "appid": "", //appid 设置空就好了。
+        "img_url": 'http://www.yaya12.com/wedding/static/img/img.png', //分享时所带的图片路径
+        "img_width": "120", //图片宽度
+        "img_height": "120", //图片高度
+        "link": 'http://www.yaya12.com/wedding/html/index.html', //分享附带链接地址
+        "desc": "今生今世，之子之后，与子偕老；每天每夜，静观花开花落，笑看云卷云舒！", //分享内容介绍
+        "title": "婚礼邀请函-谭秀成&禇君芳"
+    }, function(res) { /*** 回调函数，最好设置为空 ***/ });
     WeixinJSBridge.invoke('shareTimeline', {
-            "appid": "", //appid 设置空就好了。
-            "img_url": 'http://www.yaya12.com/wedding/static/img/img.png', //分享时所带的图片路径
-            "img_width": "120", //图片宽度
-            "img_height": "120", //图片高度
-            "link": 'http://www.yaya12.com/wedding/html/index.html', //分享附带链接地址
-            "desc": "今生今世，之子之后，与子偕老；每天每夜，静观花开花落，笑看云卷云舒！", //分享内容介绍
-            "title": "婚礼邀请函-谭秀成&禇君芳"
-        }, function(res) { /*** 回调函数，最好设置为空 ***/ });
+        "appid": "", //appid 设置空就好了。
+        "img_url": 'http://www.yaya12.com/wedding/static/img/img.png', //分享时所带的图片路径
+        "img_width": "120", //图片宽度
+        "img_height": "120", //图片高度
+        "link": 'http://www.yaya12.com/wedding/html/index.html', //分享附带链接地址
+        "desc": "今生今世，之子之后，与子偕老；每天每夜，静观花开花落，笑看云卷云舒！", //分享内容介绍
+        "title": "婚礼邀请函-谭秀成&禇君芳"
+    }, function(res) { /*** 回调函数，最好设置为空 ***/ });
 }
 if (typeof WeixinJSBridge == "undefined") {
     if (document.addEventListener) {
@@ -42,7 +42,27 @@ if (typeof WeixinJSBridge == "undefined") {
     hideMenu();
 }
 require(['../require-config'], function() {
-    require(["jquery", "jqueryui", "fullpage"], function($, jqueryui, fullpage) {
+    require(["jquery", "jqueryui", "fullpage", "wx"], function($, jqueryui, fullpage, wx) {
+        $.ajax({
+            url: 'https://wxmp.qfpay.com/v1/manage/wxjs_conf',
+            dataType: json,
+            data: {
+                'app_id': 'wxeb6e671f5571abce',
+                'app_secret': 'xxx',
+                'url': 'http://www.yaya12.com/wedding/html/index.html',
+                'format': 'jsonp',
+            },
+            success: function(data) {
+                if (data.respcd != '0000') {
+                    console.log('success---success');
+                } else {
+                    console.log('success---error');
+                }
+            },
+            error: function(data) {
+                console.log('error---'+data);
+            }
+        });
         if ($.browser.msie && $.browser.version < 10) {
             $('body').addClass('ltie10');
         }
@@ -67,7 +87,22 @@ require(['../require-config'], function() {
                 scrollingSpeed: 1000, //滑动速度
                 //slidesNavigation:true,//幻灯片底部远点导航
                 loopBottom: false, //滚动到最底部后是否滚回顶部
-                css3: true, //是否使用 CSS3 transforms 滚动
+                css3: true, //是否使用 CSS3 transforms 滚动--页面切换的滑动效果
+                // paddingTop:10px,//默认的页面头部间距
+                // paddingBottom:10px,//默认的页面底部间距
+                // fixedElements:'.js_music',//固定的元素,滚动式不动
+                // keyboardScrolling:true,//键盘操纵滚动
+                // touchSensitivity:5,//值越大，越难滚动
+                // continuousVertical:false,//是否循环滚动
+                // animateAnchor:true,//锚链接是否可以控制滚动动画，如果是false，则通过锚链接定位到某个页面不再显示动画效果
+                // recordHistory:true,//增加浏览器历史记录，可以点击后退前进会看浏览页面
+                // navigation:false,//是否显示导航，true--小圆点导航
+                // navigationPosition:'right',//导航位置
+                // navigationTooltips:['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '7thpage', '8thpage', '9thpage', 'tenthpage', 'eleventhpage'],//鼠标在小圆点上的提示
+                // showActiveTooltip:false,//true,滚动那个页面，对应的小圆点显示提示
+                // slidesNavigation:false,//是否显示横向幻灯片导航
+                // slidesNavPosition:bottom,//横向幻灯片导航位置
+                scrollOverflow:true,//内容超过慢跑后是否显示滚动条，true--jquery.slimscroll插件
                 afterRender: function() {
                     console.log('加载完成！');
                     $('#loading_mask').hide();
